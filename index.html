@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f2f2f2, #d9e4ff);
+      background: linear-gradient(135deg, #360000, #d9e4ff);
       text-align: center;
       padding: 40px;
       margin: 0;
@@ -94,7 +94,7 @@
     <a href="#kontakt">Kontakt</a>
   </nav>
 
-  <h1>Min hjemmeside 🚀</h1>
+  <h1>Min hjemmeside </h1>
 
   <!-- 🌙 Dark mode -->
   <button onclick="toggleDarkMode()">Skift tema 🌙</button>
@@ -119,18 +119,9 @@
   <!-- 🖼️ Billede -->
   <br>
   <img id="img" src="skærmbillede" alt="Mit billede">
-  <br>
-  <button onclick="changeImage()">Skift billede</button>
 
   <h2 id="om">Om mig</h2>
   <p>Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.</p>
-
-  <h2 id="kontakt">Kontakt</h2>
-  <p>Email: dinmail@example.com</p>
-
-  <footer>
-    © 2026 Min hjemmeside
-  </footer>
 
   <script>
     function toggleDarkMode() {
@@ -157,9 +148,6 @@
       document.getElementById("output").innerText = value;
     }
 
-    function changeImage() {
-      document.getElementById("img").src = "https://picsum.photos/300";
-    }
   </script>
 
 </body>
