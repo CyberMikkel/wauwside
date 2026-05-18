@@ -7,34 +7,18 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #3B0000;
+      background-color: #f2f2f2;
       text-align: center;
       padding: 40px;
       margin: 0;
-    }
-
-    nav {
-      margin-bottom: 20px;
+      transition: 0.3s;
     }
 
     nav a {
       margin: 0 10px;
       text-decoration: none;
-      color: #FFFFFF;
+      color: #333;
       font-weight: bold;
-    }
-
-    h1 {
-      color: #FFFFFF;
-    }
-
-    h2 {
-      margin-top: 40px;
-      color: #FFFFFF;
-    }
-
-    p {
-      color: #FFFFFF;
     }
 
     img {
@@ -47,21 +31,30 @@
     button {
       padding: 10px 20px;
       border: none;
-      background: #0088A1;
+      background: #4CAF50;
       color: white;
       border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
+      margin: 5px;
     }
 
     button:hover {
-      background: #000A8A;
+      background: #45a049;
     }
 
-    footer {
-      margin-top: 50px;
-      color: #777;
-      font-size: 14px;
+    input {
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    /* 🌙 Dark mode */
+    .dark {
+      background-color: #121212;
+      color: white;
+    }
+
+    .dark nav a {
+      color: white;
     }
   </style>
 </head>
@@ -74,23 +67,77 @@
     <a href="#kontakt">Kontakt</a>
   </nav>
 
-  <h1>Mit billede</h1>
+  <h1>Min hjemmeside 🚀</h1>
 
-  <button onclick="skiftTekst()">Klik mig</button>
+  <!-- 🌓 Dark mode -->
+  <button onclick="toggleDarkMode()">🌙 Skift tema</button>
 
+  <!-- 📝 Tekst ændring -->
   <p id="tekst">Hej 👋 det her er min hjemmeside wauww</p>
+  <button onclick="skiftTekst()">Skift tekst</button>
 
-  <!-- Husk at omdøbe dit billede til fx "screenshot.png" -->
-  <img src="skærmbillede" alt="Mit billede">
+  <!-- 🧮 Tæller -->
+  <h2 id="counter">0</h2>
+  <button onclick="add()">+1</button>
+
+  <!-- 🎲 Terning -->
+  <h2 id="dice">-</h2>
+  <button onclick="roll()">🎲 Rul terning</button>
+
+  <!-- ⌨️ Input live -->
+  <br><br>
+  <input type="text" oninput="updateText(this.value)" placeholder="Skriv noget...">
+  <p id="output"></p>
+
+  <!-- 🖼️ Billede -->
+  <br>
+  <img id="img" src="screenshot.png" alt="Mit billede">
+  <br>
+  <button onclick="changeImage()">Skift billede</button>
 
   <h2 id="om">Om mig</h2>
   <p>Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.</p>
 
+  <h2 id="kontakt">Kontakt</h2>
+  <p>Email: dinmail@example.com</p>
+
+  <footer>
+    © 2026 Min hjemmeside
+  </footer>
 
   <script>
+    // 🌓 Dark mode
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    // 📝 Skift tekst
     function skiftTekst() {
       document.getElementById("tekst").innerText =
         "Du klikkede på knappen! 🎉";
+    }
+
+    // 🧮 Tæller
+    let count = 0;
+    function add() {
+      count++;
+      document.getElementById("counter").innerText = count;
+    }
+
+    // 🎲 Terning
+    function roll() {
+      let result = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("dice").innerText = result;
+    }
+
+    // ⌨️ Live tekst
+    function updateText(value) {
+      document.getElementById("output").innerText = value;
+    }
+
+    // 🖼️ Skift billede
+    function changeImage() {
+      document.getElementById("img").src = "https://picsum.photos/300";
     }
   </script>
 
