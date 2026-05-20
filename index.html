@@ -6,19 +6,20 @@
 
   <style>
     body {
-  font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif;
 
-  background-image: url("skærmbillede");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+      /* 🌄 Normal baggrund */
+      background-image: url("skærmbillede.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-  text-align: center;
-  padding: 40px;
-  margin: 0;
-  transition: 1s;
-  color: white; /* vigtigt hvis baggrunden er mørk */
-}
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+      transition: 0.5s;
+
+      color: white;
     }
 
     nav {
@@ -28,19 +29,25 @@
     nav a {
       margin: 0 10px;
       text-decoration: none;
-      color: #FFFFFF;
+      color: white;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
     }
 
     h1 {
-      color: #FFFFFF;
+      color: white;
     }
 
     img {
       width: 300px;
       border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
       margin-top: 10px;
+      transition: 0.5s;
     }
 
     button {
@@ -52,7 +59,7 @@
       cursor: pointer;
       margin: 5px;
       font-weight: bold;
-      transition: 0.2s;
+      transition: 0.3s;
     }
 
     button:hover {
@@ -63,47 +70,62 @@
     input {
       padding: 8px;
       border-radius: 6px;
-      border: 1px solid #FFFFFF;
+      border: 1px solid white;
       margin-top: 10px;
     }
 
     footer {
       margin-top: 40px;
-      color: #666;
+      color: #ccc;
     }
 
-    /* 🌙 Dark mode */
+    /* 🌙 DARK MODE */
     .dark {
-      background: #121212;
-      color: white;
+      background-image: url("darkbaggrund.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      background-color: #121212;
+      color: #00ffcc;
     }
 
     .dark nav a {
-      color: white;
+      color: #00ffff;
+    }
+
+    .dark h1 {
+      color: #ffcc00;
     }
 
     .dark button {
-      background: linear-gradient(135deg, #555, #888);
+      background: linear-gradient(135deg, #333, #666);
+    }
+
+    .dark button:hover {
+      background: linear-gradient(135deg, #666, #999);
     }
 
     .dark img {
-      box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+      box-shadow: 0 6px 15px rgba(255,255,255,0.2);
     }
   </style>
 </head>
 
 <body>
 
+  <!-- 🔗 Menu -->
   <nav>
     <a href="#">Forside</a>
     <a href="#om">Om mig</a>
     <a href="#kontakt">Kontakt</a>
   </nav>
 
+  <!-- 🏠 Overskrift -->
   <h1>Min hjemmeside</h1>
 
   <!-- 🌙 Dark mode -->
-  <button onclick="toggleDarkMode()">Skift tema </button>
+  <button onclick="toggleDarkMode()">🌙 Skift tema</button>
 
   <!-- 📝 Tekst -->
   <p id="tekst">Hej det her er min hjemmeside wauww</p>
@@ -115,44 +137,68 @@
 
   <!-- 🎲 Terning -->
   <h2 id="dice">-</h2>
-  <button onclick="roll()"> Rul terning</button>
+  <button onclick="roll()">🎲 Rul terning</button>
 
   <!-- ⌨️ Input -->
   <br><br>
-  <input type="text" oninput="updateText(this.value)" placeholder="Skriv noget...">
+  <input 
+    type="text"
+    oninput="updateText(this.value)"
+    placeholder="Skriv noget..."
+  >
+
   <p id="output"></p>
 
   <!-- 🖼️ Billede -->
   <br>
-  <img id="img" src="skærmbillede" alt="Mit billede">
+  <img id="img" src="skærmbillede.jpg" alt="Mit billede">
 
+  <!-- 👤 Om mig -->
   <h2 id="om">Om mig</h2>
-  <p>Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.</p>
 
+  <p>
+    Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.
+  </p>
+
+  <!-- 📞 Kontakt -->
+  <h2 id="kontakt">Kontakt</h2>
+
+  <p>Min email: minemail@email.dk</p>
+
+  <!-- 🧠 JavaScript -->
   <script>
+
+    /* 🌙 Dark mode */
     function toggleDarkMode() {
       document.body.classList.toggle("dark");
     }
 
+    /* 📝 Skift tekst */
     function skiftTekst() {
       document.getElementById("tekst").innerText =
-        "Du klikkede på knappen! ";
+        "Du klikkede på knappen! 🔥";
     }
 
+    /* 🧮 Tæller */
     let count = 0;
+
     function add() {
       count++;
       document.getElementById("counter").innerText = count;
     }
 
+    /* 🎲 Terning */
     function roll() {
       let result = Math.floor(Math.random() * 6) + 1;
+
       document.getElementById("dice").innerText = result;
     }
 
+    /* ⌨️ Live tekst */
     function updateText(value) {
       document.getElementById("output").innerText = value;
     }
+
   </script>
 
 </body>
