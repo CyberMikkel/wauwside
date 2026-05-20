@@ -1,458 +1,167 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <title>Min side</title>
+<meta charset="UTF-8">
+<title>Min side</title>
 
-  <style>
-    body {
-  font-family: Arial, sans-serif;
+<style>
+body {
+font-family: Arial, sans-serif;
 
-  background-image: url("skærmbillede");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+background-image: url("skærmbillede");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 
-  text-align: center;
-  padding: 40px;
-  margin: 0;
-  transition: 1s;
-  color: white; /* vigtigt hvis baggrunden er mørk */
+text-align: center;
+padding: 40px;
+margin: 0;
+transition: 1s;
+
+color: white; /* vigtigt hvis baggrunden er mørk */
 }
-    }
 
-    nav {
-      margin-bottom: 20px;
-    }
+nav {
+margin-bottom: 20px;
+}
 
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #FFFFFF;
-      font-weight: bold;
-    }
+nav a {
+margin: 0 10px;
+text-decoration: none;
+color: #FFFFFF;
+font-weight: bold;
+}
 
-    h1 {
-      color: #FFFFFF;
-    }
+h1 {
+color: #FFFFFF;
+}
 
-    img {
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-      margin-top: 10px;
-    }
+img {
+width: 300px;
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+margin-top: 10px;
+}
 
-    button {
-      padding: 10px 18px;
-      border: none;
-      background-color: #150082;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 5px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
+button {
+padding: 10px 18px;
+border: none;
+background-color: #150082;
+color: white;
+border-radius: 8px;
+cursor: pointer;
+margin: 5px;
+font-weight: bold;
+transition: 0.2s;
+}
 
-    button:hover {
-      transform: scale(1.05);
-      background-color: #800082;
-    }
+button:hover {
+transform: scale(1.05);
+background-color: #800082;
+}
 
-    input {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #FFFFFF;
-      margin-top: 10px;
-    }
+input {
+padding: 8px;
+border-radius: 6px;
+border: 1px solid #FFFFFF;
+margin-top: 10px;
+}
 
-    footer {
-      margin-top: 40px;
-      color: #666;
-    }
-
-    /* 🌙 Dark mode */
-    .dark {
-      background: #121212;
-      color: white;
-    }
-
-    .dark nav a {
-      color: white;
-    }
-
-    .dark button {
-      background: linear-gradient(135deg, #555, #888);
-    }
-
-    .dark img {
-      box-shadow: 0 6px 15px rgba(255,255,255,0.1);
-    }
-  </style>
-</head>
-
-<body>
-
-  <nav>
-    <a href="#">Forside</a>
-    <a href="#om">Om mig</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-
-  <h1>Min hjemmeside</h1>
-
-  <!-- 🌙 Dark mode -->
-  <button onclick="toggleDarkMode()">Skift tema </button>
-
-  <!-- 📝 Tekst -->
-  <p id="tekst">Hej det her er min hjemmeside wauww</p>
-  <button onclick="skiftTekst()">Sejeknap</button>
-
-  <!-- 🧮 Tæller -->
-  <h2 id="counter">0</h2>
-  <button onclick="add()">+1</button>
-
-  <!-- 🎲 Terning -->
-  <h2 id="dice">-</h2>
-  <button onclick="roll()"> Rul terning</button>
-
-  <!-- ⌨️ Input -->
-  <br><br>
-  <input type="text" oninput="updateText(this.value)" placeholder="Skriv noget...">
-  <p id="output"></p>
-
-  <!-- 🖼️ Billede -->
-  <br>
-  <img id="img" src="skærmbillede" alt="Mit billede">
-
-  <h2 id="om">Om mig</h2>
-  <p>Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.</p>
-
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-    }
-
-    function skiftTekst() {
-      document.getElementById("tekst").innerText =
-        "Du klikkede på knappen! ";
-    }
-
-    let count = 0;
-    function add() {
-      count++;
-      document.getElementById("counter").innerText = count;
-    }
-
-    function roll() {
-      let result = Math.floor(Math.random() * 6) + 1;
-      document.getElementById("dice").innerText = result;
-    }
-
-    function updateText(value) {
-      document.getElementById("output").innerText = value;
-    }
-  </script>
-
-</body>
-</html>
-
-Du er meget tæt på — din dark mode virker allerede næsten 😄
-Problemet er bare, at din body har et fast background-image, så .dark ændrer ikke baggrunden synligt.
-
-Du kan gøre det sådan her i stedet:
+footer {
+margin-top: 40px;
+color: #666;
+}
 
 /* 🌙 Dark mode */
 .dark {
-  background-color: #121212;
-  color: white;
-
-  /* skift baggrundsbillede */
-  background-image: url("dark-baggrund.jpg");
+background: #121212;
+color: white;
 }
 
 .dark nav a {
-  color: #00ffff;
-}
-
-.dark h1 {
-  color: #ffcc00;
+color: white;
 }
 
 .dark button {
-  background: linear-gradient(135deg, #333, #666);
+background: linear-gradient(135deg, #555, #888);
 }
 
 .dark img {
-  box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+box-shadow: 0 6px 15px rgba(255,255,255,0.1);
 }
-
-Og så skal du rette en lille fejl i din CSS øverst:
-
-Du har:
-
-body {
- ...
-}
-}
-
-Der er en ekstra } bagefter.
-Det skal være:
-
-body {
-  font-family: Arial, sans-serif;
-  background-image: url("skærmbillede");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-align: center;
-  padding: 40px;
-  margin: 0;
-  transition: 1s;
-  color: white;
-}
-
-Du kan også gøre darkmode endnu federe med forskellige farver:
-
-.dark {
-  background-color: black;
-  color: #00ffcc;
-}
-
-Eller:
-
-.dark {
-  background: linear-gradient(to bottom, #000000, #222244);
-}
-
-Din JavaScript til darkmode er allerede korrekt:
-
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
-}
-
-Hvis du vil, kan jeg også hjælpe dig med:
-
-    automatisk gemt darkmode
-
-    smooth animation
-
-    neon/cyberpunk tema
-
-    rigtig lys-mode + mørk-mode
-
-    skifte ikon 🌙☀️
-
-    få GitHub Pages til at vise billeder korrekt
-
-
-giv mig den fulde kode så jeg kan copy paste den ind
-
-<!DOCTYPE html>
-<html lang="da">
-<head>
-  <meta charset="UTF-8">
-  <title>Min side</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-
-      /* 🌄 Normal baggrund */
-      background-image: url("skærmbillede.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      text-align: center;
-      padding: 40px;
-      margin: 0;
-      transition: 0.5s;
-
-      color: white;
-    }
-
-    nav {
-      margin-bottom: 20px;
-    }
-
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #00ffff;
-    }
-
-    h1 {
-      color: white;
-    }
-
-    img {
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      margin-top: 10px;
-      transition: 0.5s;
-    }
-
-    button {
-      padding: 10px 18px;
-      border: none;
-      background-color: #150082;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 5px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      background-color: #800082;
-    }
-
-    input {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid white;
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 40px;
-      color: #ccc;
-    }
-
-    /* 🌙 DARK MODE */
-    .dark {
-      background-image: url("darkbaggrund.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-
-      background-color: #121212;
-      color: #00ffcc;
-    }
-
-    .dark nav a {
-      color: #00ffff;
-    }
-
-    .dark h1 {
-      color: #ffcc00;
-    }
-
-    .dark button {
-      background: linear-gradient(135deg, #333, #666);
-    }
-
-    .dark button:hover {
-      background: linear-gradient(135deg, #666, #999);
-    }
-
-    .dark img {
-      box-shadow: 0 6px 15px rgba(255,255,255,0.2);
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- 🔗 Menu -->
-  <nav>
-    <a href="#">Forside</a>
-    <a href="#om">Om mig</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
+<nav>
+<a href="#">Forside</a>
+<a href="#om">Om mig</a>
+<a href="#kontakt">Kontakt</a>
+</nav>
 
-  <!-- 🏠 Overskrift -->
-  <h1>Min hjemmeside</h1>
+<h1>Min hjemmeside</h1>
 
-  <!-- 🌙 Dark mode -->
-  <button onclick="toggleDarkMode()">🌙 Skift tema</button>
+<!-- 🌙 Dark mode -->
+<button onclick="toggleDarkMode()">Skift tema </button>
 
-  <!-- 📝 Tekst -->
-  <p id="tekst">Hej det her er min hjemmeside wauww</p>
-  <button onclick="skiftTekst()">Sejeknap</button>
+<!-- 📝 Tekst -->
+<p id="tekst">Hej det her er min hjemmeside wauww</p>
 
-  <!-- 🧮 Tæller -->
-  <h2 id="counter">0</h2>
-  <button onclick="add()">+1</button>
+<button onclick="skiftTekst()">Sejeknap</button>
 
-  <!-- 🎲 Terning -->
-  <h2 id="dice">-</h2>
-  <button onclick="roll()">🎲 Rul terning</button>
+<!-- 🧮 Tæller -->
+<h2 id="counter">0</h2>
 
-  <!-- ⌨️ Input -->
-  <br><br>
-  <input 
-    type="text"
-    oninput="updateText(this.value)"
-    placeholder="Skriv noget..."
-  >
+<button onclick="add()">+1</button>
 
-  <p id="output"></p>
+<!-- 🎲 Terning -->
+<h2 id="dice">-</h2>
 
-  <!-- 🖼️ Billede -->
-  <br>
-  <img id="img" src="skærmbillede.jpg" alt="Mit billede">
+<button onclick="roll()"> Rul terning</button>
 
-  <!-- 👤 Om mig -->
-  <h2 id="om">Om mig</h2>
+<!-- ⌨️ Input -->
+<br><br>
 
-  <p>
-    Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.
-  </p>
+<input type="text" oninput="updateText(this.value)" placeholder="Skriv noget...">
 
-  <!-- 📞 Kontakt -->
-  <h2 id="kontakt">Kontakt</h2>
+<p id="output"></p>
 
-  <p>Min email: minemail@email.dk</p>
+<!-- 🖼️ Billede -->
+<br>
 
-  <!-- 🧠 JavaScript -->
-  <script>
+<img id="img" src="skærmbillede" alt="Mit billede">
 
-    /* 🌙 Dark mode */
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-    }
+<h2 id="om">Om mig</h2>
 
-    /* 📝 Skift tekst */
-    function skiftTekst() {
-      document.getElementById("tekst").innerText =
-        "Du klikkede på knappen! 🔥";
-    }
+<p>Jeg er ved at lære at lave hjemmesider med HTML, CSS og JavaScript.</p>
 
-    /* 🧮 Tæller */
-    let count = 0;
+<script>
+function toggleDarkMode() {
+document.body.classList.toggle("dark");
+}
 
-    function add() {
-      count++;
-      document.getElementById("counter").innerText = count;
-    }
+function skiftTekst() {
+document.getElementById("tekst").innerText =
+"Du klikkede på knappen! ";
+}
 
-    /* 🎲 Terning */
-    function roll() {
-      let result = Math.floor(Math.random() * 6) + 1;
+let count = 0;
 
-      document.getElementById("dice").innerText = result;
-    }
+function add() {
+count++;
+document.getElementById("counter").innerText = count;
+}
 
-    /* ⌨️ Live tekst */
-    function updateText(value) {
-      document.getElementById("output").innerText = value;
-    }
+function roll() {
+let result = Math.floor(Math.random() * 6) + 1;
+document.getElementById("dice").innerText = result;
+}
 
-  </script>
+function updateText(value) {
+document.getElementById("output").innerText = value;
+}
+</script>
 
 </body>
 </html>
-
-
